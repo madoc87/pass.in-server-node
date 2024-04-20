@@ -1,0 +1,40 @@
+# Teste de rota para cadastrar o evento
+POST http://localhost:3355/events
+Content-Type: application/json
+
+{
+    "title": 11,
+    "details": null,
+    "maximumAttendees": 10
+}
+
+###
+# Teste de rota para cadastrar o participante no evento
+POST http://localhost:3355/events/5d331a3a-83e5-493e-8185-98651ef6b95f/attendees
+Content-Type: application/json
+
+{
+    "name": "Fernanda Ribas",
+    "email": "fernanda@gmail.com"
+}
+
+###
+# Teste de rota para buscar informacoes dos eventos
+GET http://localhost:3355/events/5d331a3a-83e5-493e-8185-98651ef6b95f
+
+
+###
+# Teste de rota para recuperar informacoes dos participantes
+GET http://localhost:3355/attendees/8/badge
+
+###
+# Teste de rota para check in do participante
+GET http://localhost:3355/attendees/9/check-in
+
+###
+# Teste de rota para buscar todos os participantes cadastrados no evento
+GET http://localhost:3355/events/5d331a3a-83e5-493e-8185-98651ef6b95f/attendees
+
+###
+# Teste de rota para buscar todos os participantes cadastrados no evento com uma busca pelo nome
+GET http://localhost:3355/events/5d331a3a-83e5-493e-8185-98651ef6b95f/attendees?query=F

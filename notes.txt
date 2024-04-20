@@ -1,0 +1,66 @@
+// API REST 
+// Metodos HTTP: GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS, ...
+
+// GET - Retornar dados
+// POST - Criando rota para criar algo, como um registro, um novo produto, uma constants, etc
+// PUT - Atualizacao de recursos, como nome, avata, senha, etc
+// DELETE - Quando for deletar uma informacao na API
+// PATCH - Fazer uma alteracao unica em um registo, exemplo um usuario vai aceitrar ou nao receber um notificacao, porque ele está alterando um informacao unica diferente do post onde ele alterar um registro por completo
+// HEAD e OPTIONS - É mais voltado para a parte de CORS e Segurança
+
+
+// Corpo da requisicao (Request Body) geralmente é utilizado em requisicoes do tipo POST ou PUT, que sao basicamente as informacoes do formulario, normalmente usado para a criacao ou edicao de um registro.
+
+// Parametros de busca (Search  Params / Query Params) - Parametros enviados na URL geralemnte usados para fazer filtragem ou busca de dados
+
+Ex.:  `http://localhost:3333/users?name=Fabricio`
+
+// Parametros de rota (Route Params) - Indentificacao de recursos
+Geralemnte utilizados nos metodoso GET, PUT, DELETE ou PATCH
+
+Ex.: Para deletar o usuario com ID 5, então usando a rota DELETE 
+`DELETE http://localhost:3333/users/5`
+
+
+//Cabeçalhos (Headers) - Contexto da requisicao
+Por exemplo o backend precisa responder uma mensagem de erro pro usuario caso o email já exista, então essa mgs de erro pode vir em portugues pro usuario caso ele esteja no brasil, mas ele pode responder esssa mgs em outro idioma caso o usuario esteja em outro pais. Então essa informacao do idioma do usuario pode ser transicionada pelo Header. Geralemnte sao informacoes sao informacoes que nao vao mudar, que servem para constextualizar o backend para que o backend saiba mais informacoes sobre quem esta fazendo aquela requisicao
+
+Informacoes normalmente enviadas sao:
+Autenticacao, localizacao, idioma, time zone, etc, informacoes que ajudam o uaurio a dar um retorno mais apropriado para o usuario
+
+
+## Banco de dados
+Normalmente sao 3 formas de conectar uma API a um banco de dados, Driver nativo, Query Builders e ORMs.
+
+# Driver Nativo são as formas conexoes de mais baixo nivel onde vcoe cria a conexao e vc tem que escrever todas as Querys na mao, como o SELEC, SEACH, DELETE, tudo na mão; É uma otima opcao para quem está buscando uma otimizacao a nivel profundo, porque voce pode ter controle de tudo, mas precisa de um grande conhecimento em SQL
+
+# Query Builder - Geralmente vc usa a linguagem/sintaxe para escrever as Query SQL por exemplo o KNEX.js
+
+# ORM (Object Relational Mapping), como o Hibernate, Doctrine, ActiveRecord, etc
+E uma ferramenta que automatiza varios processos do banco de dados ao mesmo tempo, nao so a escrita de Querys, mas o versionamento do banco de dados.
+
+Exemplo de ORM no Node.js é o Sequelize, mas não será usado nesse projeto pq a API dele ficou um pouco pra tras em comparacão com outros, que tem uma experiencia melhor de desenvolvimento, como o Prisma e o Drizzle (mas o projeto está muito embrionario)
+
+
+## JSON - JavaScript Object Notation
+
+
+Codigos HTTP - Status Code
+20x - Todo Status code que começa com 200 significa sucesso;
+200 Sucesso (de forma generica, podendo ser mais especifico com as variacoes);
+201 - Registo criado com sucesso;
+
+30x - Todo Status code que começa com 300 é um redirecionamento;
+
+40x - Todo Status code que começa com 400 é um Client Error significa um erro do cliente (Erro em alguma informacao enviada por QUEM está fazendo a chamada p/ API);
+
+50x - Todo codigo com 500 significa um erro do servidor (Um erro que está acontecendo INDEPENDENTE do que está sendo enviado p/ o servidor);
+
+
+----
+
+Caso o TypeScript não reconheça as novas tabelas do banco pode forçar ele reiniciar:
+
+Na aba do arquivo TS pressionar o atalho "Ctrl + Shift + P" e digitar 
+
+>TypeScript: Restart TS Server
